@@ -1,10 +1,13 @@
 from fastapi import FastAPI
 from app.core.database import get_connection
 from app.core.config import settings
+from app.api.ingest import router as ingest_router
 
 app = FastAPI(title="Log Management System")
 
 # print("DB URL in use:", settings.database_url)
+
+app.include_router(ingest_router)
 
 @app.get("/health")
 def health():
