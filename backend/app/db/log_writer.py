@@ -1,8 +1,8 @@
-from app.core.database import get_connection
+from app.db.connection import pool
 from app.schemas.log import LogEntry
 
 def save_log(entry: LogEntry, normalized: dict):
-    with get_connection() as conn:
+    with pool.connection() as conn:
         with conn.cursor() as cur:
             cur.execute(
                 """

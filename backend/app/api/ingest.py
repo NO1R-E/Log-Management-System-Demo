@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request, HTTPException
 from app.schemas.log import LogEntry
 from app.normalizers import NORMALIZERS
-from app.core.log_writer import save_log
+from app.db.log_writer import save_log
 
 router = APIRouter()
 
